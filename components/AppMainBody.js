@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-
 import ReactTimeAgo from 'react-time-ago'
+
+import config from '../config'
 
 const SearchBox = ({currentFilter, setCurrentFilter}) => {
   return (
@@ -28,7 +29,7 @@ const AppMainBody = () => {
   let abortController
 
   useEffect(async () => {
-    const res = await fetch('http://localhost:3000/api/filters')
+    const res = await fetch(`${config.apiurl}/api/filters`)
     const jsonRes = await res.json()
     setFilters(jsonRes)
   }, [])
@@ -48,7 +49,7 @@ const AppMainBody = () => {
 
     try {
       const res = await fetch(
-        'http://localhost:3000/api/jobs?' + params.toString(), 
+        `${config.apiurl}/api/jobs?` + params.toString(),
         { signal: abortController.signal }
       )
       const jsonRes = await res.json()

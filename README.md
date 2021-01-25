@@ -7,6 +7,8 @@ Executing the following commands will create a local dev environment running on 
 	npm install
 	npm run dev
 
+The web app is publicly available through this link: https://cbh-fullstack-test.vercel.app/
+
 
 ## Instructions
 
